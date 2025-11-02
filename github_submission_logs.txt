@@ -1,0 +1,39 @@
+* 1226a82 Update input.txt
+* cdf8a8d update
+*   b8be70f Merge pull request #6 from mihnea-popescu/jx
+|\  
+| * e25f104 update
+| * 6269b54 update
+|/  
+* 449a656 fake opcode for location and data
+*   bd580a8 Merge pull request #5 from mihnea-popescu/jx
+|\  
+| * 3848b0f update
+|/  
+* ef5c146 Update GUI
+*   1e06f62 Merge pull request #4 from mihnea-popescu/integration
+|\  
+| * 547bf00 update
+|/  
+* 79dfd9b fixes
+*   d84b985 merge conflicts resolved
+|\  
+| *   a77ab68 Merge pull request #3 from mihnea-popescu/gui
+| |\  
+| | * d5938d9 update
+| | * 19695aa update
+| * | 5c777ff instructions
+| * | ea5425e memory access fault
+| * | 17a9412 implemented instruction decoding and executing + instruction executor skeleton
+| * | 9e273f9 change directory structure
+| * | 07a1bb4 move files to com project package
+| |/  
+| * d4474e5 add artifact and output formatting
+| * 33a881b clean unnecessary comments
+| * 57e76a1 update gitignore
+| * 2f26dd3 add /out/ and output.txt inside gitignore
+| * 4a81fc6 update
+| * c39c1c0 Update InputParser.java
+| * 42e84db Update InputParser.java
+| * e7db43f Update InputParser.java
+| * bc07133 Update InputParser.java
