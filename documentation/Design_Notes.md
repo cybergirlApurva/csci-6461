@@ -1,20 +1,3 @@
-# 🎉 **Excellent! User Guide saved!**
-
----
-
-## **Now let's create Design Notes:**
-
-```bash
-nano documentation/Design_Notes.md
-```
-
-**Press Enter to run this command.**
-
----
-
-Once nano opens, **copy and paste this ENTIRE text:**
-
-```markdown
 # CSCI 6461 Part 2 - Design Notes
 ## CPU Simulator with Cache Implementation
 
