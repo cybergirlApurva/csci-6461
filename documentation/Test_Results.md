@@ -58,6 +58,66 @@ All Part 2 components tested and verified functional.
 
 ### Test 3: FIFO Replacement
 **Objective:** Verify oldest line evicted when cache full  
+# CSCI 6461 Part 2 - Test Results
+
+**Team:** Apurva Tiwari, Mihnea Popescu, James Xu, Sinchana  
+**Date:** November 1, 2025  
+**Status:** ✅ Complete
+
+---
+
+## Executive Summary
+
+All Part 2 components tested and verified functional.
+
+| Component | Tests | Passed | Failed | Status |
+|-----------|-------|--------|--------|--------|
+| Cache | 5 | 5 | 0 | ✅ PASS |
+| Instructions | 28 | 28 | 0 | ✅ PASS |
+| GUI | 6 | 6 | 0 | ✅ PASS |
+| Program 1 | 3 | 3 | 0 | ✅ PASS |
+| **TOTAL** | **42** | **42** | **0** | **✅ 100%** |
+
+---
+
+## Cache Tests
+
+### Test 1: Cache Hit Detection
+**File:** Manual testing  
+**Objective:** Verify cache identifies hits after initial load  
+**Procedure:**
+1. Load value at address 10
+2. Read address 10 again
+3. Check for hit message
+
+**Expected:** Second read shows `[CACHE HIT]`  
+**Result:** ✅ PASS  
+**Output:**
+```
+[CACHE MISS] Read ADDRESS: 0010 from MEMORY -> 100
+[CACHE HIT] Read ADDRESS: 0010 -> 100
+```
+
+---
+
+### Test 2: Cache Miss Handling
+**Objective:** Verify cache loads from memory on miss  
+**Procedure:**
+1. Read address never accessed before
+2. Verify data fetched from memory
+3. Verify cache line created
+
+**Expected:** Miss message, data returned, line inserted  
+**Result:** ✅ PASS  
+**Output:**
+```
+[CACHE MISS] Read ADDRESS: 0050 from MEMORY -> 200
+```
+
+---
+
+### Test 3: FIFO Replacement
+**Objective:** Verify oldest line evicted when cache full  
 **Procedure:**
 1. Fill cache with 16 unique addresses
 2. Access 17th address
