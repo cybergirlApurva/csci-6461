@@ -729,7 +729,5 @@ Decimal | Octal | Binary    | Mnemonic
 ...
 ```
 
-(Complete table in separate reference document)
-
 ---
 
