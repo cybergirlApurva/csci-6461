@@ -175,8 +175,8 @@ public class Cpu {
 
     public int computeEffectiveAddress(int address, int ix, boolean indirect) {
         int EA = address;
-        if (ix > 0) EA += IXR[ix - 1].getValue();
         if (indirect) EA = readUnsignedMemory(EA);
+        if (ix > 0) EA += IXR[ix - 1].getValue();
         // use a 12bit mask
         return EA & 0xFFF;
     }
