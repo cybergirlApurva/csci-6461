@@ -1,6 +1,7 @@
 package com.project.cpu;
 
 import com.project.instruction.Instruction;
+import com.project.io.IoDeviceManager;
 import com.project.memory.Cache;
 import com.project.memory.Memory;
 import com.project.memory.exceptions.MemoryAccessException;
@@ -35,11 +36,10 @@ public class Cpu {
     // Add at the top of the Cpu class
     private java.util.function.Consumer<String> printerCallback;
 
-    
+    // IO Devices
+    public IoDeviceManager ioDeviceManager = new IoDeviceManager();
 
 
-
-   
 
     public Cpu(Memory mem){
         // Set up GPR and IXR registers

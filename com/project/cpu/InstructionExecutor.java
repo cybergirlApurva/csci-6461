@@ -1,6 +1,7 @@
 package com.project.cpu;
 
 import com.project.instruction.Instruction;
+import com.project.io.IoDevice;
 import com.project.memory.exceptions.MemoryAccessException;
 import com.project.util.CacheToString;
 
@@ -330,10 +331,12 @@ public class InstructionExecutor {
     // Input from device
     private static void executeIN(Cpu cpu, Instruction instruction) {
         int r = instruction.getR();
+        int devId = instruction.getAddress(); // device ID stored in address field
         cpu.printToGUI("CPU waiting for input...");
         System.out.println("Executing IN: waiting for input from GUI...");
 
-        String input = cpu.waitForInput();
+        // get Input from device
+        String input = cpu.ioDeviceManager.getDevice(devId).read(cpu);
 
         if (input != null && !input.isEmpty()) {
             int value;
@@ -357,15 +360,25 @@ public class InstructionExecutor {
     private static void executeOUT(Cpu cpu, Instruction instruction) {
         int r = instruction.getR();
         int o = (cpu.GPR[r].getValue() & 0xFF);
+        int devId = instruction.getAddress(); // device ID stored in address field
         String out = Integer.toString(o);
+
+        cpu.ioDeviceManager.getDevice(devId).write(out);
 
         cpu.printToGUI("Executing OUT: outputting '" + out + "' from R" + r);
         System.out.println("Executing OUT: outputting '" + out + "' from R" + r);
         System.out.println(cpu.GPR[r].getValue());
     }
 
-    // Check device status (stub)
+    // Check device status
     private static void executeCHK(Cpu cpu, Instruction instruction) {
-        System.out.println("Executing CHK: device ready flag set (simulated)");
+        int r = instruction.getR();
+        int devid = instruction.getAddress();
+        IoDevice dev = cpu.ioDeviceManager.getDevice(devid);
+        int value = dev.isReady() ? 1 : 0;
+        cpu.GPR[r].setValue(value);
+
+        cpu.printToGUI("Executing CHK: saving '" + value + "' inside R" + r  +" from devid " + devid);
+        System.out.println("Executing CHK: saving '" + value + "' inside R" + r + " from devid " + devid);
     }
 }
