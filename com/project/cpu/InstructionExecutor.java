@@ -5,6 +5,8 @@ import com.project.io.IoDevice;
 import com.project.memory.exceptions.MemoryAccessException;
 import com.project.util.CacheToString;
 
+import static com.project.cpu.Cpu.MACHINE_FAULT_ILLEGAL_TRAP_CODE;
+
 public class InstructionExecutor {
     public static void execute(Cpu cpu, Instruction instruction) {
         int opcode = instruction.getOpcode();
@@ -28,6 +30,7 @@ public class InstructionExecutor {
             case 13 -> executeRFS(cpu, instruction);
             case 14 -> executeSOB(cpu, instruction);
             case 15 -> executeJGE(cpu, instruction);
+            case 24 -> executeTRAP(cpu, instruction);
             case 25 -> executeSRC(cpu, instruction);
             case 26 -> executeRRC(cpu, instruction);
             case 33 -> executeLDX(cpu, instruction);
@@ -380,5 +383,32 @@ public class InstructionExecutor {
 
         cpu.printToGUI("Executing CHK: saving '" + value + "' inside R" + r  +" from devid " + devid);
         System.out.println("Executing CHK: saving '" + value + "' inside R" + r + " from devid " + devid);
+    }
+
+    private static void executeTRAP(Cpu cpu, Instruction instruction) {
+        int pc = cpu.PC.getValue();
+
+        int trapCode = instruction.getAddress() & 0xF;
+
+        // first validate trap code
+        if (trapCode < 0 || trapCode > 15) {
+            cpu.MFR.setValue(0b0010); // MFR = 0010
+            cpu.triggerFault(MACHINE_FAULT_ILLEGAL_TRAP_CODE);
+            return;
+        }
+
+        int returnAddress = pc + 1;
+        cpu.writeMemory(2, (short) (returnAddress & 0xFFF)); // 12-bit address
+
+        int trapTableBase = cpu.readUnsignedMemory(0) & 0xFFF;
+
+        int handlerEntryAddress = trapTableBase + trapCode;
+        int handlerAddress = cpu.readUnsignedMemory(handlerEntryAddress) & 0xFFF;
+
+        cpu.PC.setValue(handlerAddress);
+
+        cpu.printToGUI("Executing TRAP " + trapCode + " -> handler at " + handlerAddress +
+                " (return address " + returnAddress + " saved at [2])");
+        System.out.println("Executing TRAP " + trapCode + " -> handler " + handlerAddress);
     }
 }

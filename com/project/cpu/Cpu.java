@@ -39,6 +39,8 @@ public class Cpu {
     // IO Devices
     public IoDeviceManager ioDeviceManager = new IoDeviceManager();
 
+    // Static Machine Faults
+    public static final int MACHINE_FAULT_ILLEGAL_TRAP_CODE = 1;
 
 
     public Cpu(Memory mem){
