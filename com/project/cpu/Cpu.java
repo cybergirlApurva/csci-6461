@@ -139,17 +139,24 @@ public class Cpu {
     }
 
     public void triggerFault(int val) {
-       MFR.setValue(val);
+        MFR.setValue(val & 0xF);
+        writeMemory(4, (short)(PC.getValue() & 0xFFFF));
+
+        writeMemory(5, (short)(MFR.getValue() & 0xFFFF));
+
+        int handlerAddress = readUnsignedMemory((1) & 0xFFF);
+
+        PC.setValue(handlerAddress);
 
        // setting the condition code fault bit to indicate a fault
-       int ccVal = CC.getValue();
-       ccVal = ccVal | 0x1; // set the first bit
-       CC.setValue(ccVal);
+//       int ccVal = CC.getValue();
+//       ccVal = ccVal | 0x1; // set the first bit
+//       CC.setValue(ccVal);
 
-       this.halted = true;
+//       this.halted = true;
 
        System.out.println("MACHINE FAULT! CODE: " + val + ".");
-       System.out.println("CPU Execution has been halted.");
+//       System.out.println("CPU Execution has been halted.");
     }
 
     private void handleMemoryError() {
