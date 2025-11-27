@@ -1,0 +1,43 @@
+; Test Program 4 - Simple Word Check
+; Checks if one word matches a search word
+; Load at address 1000
+
+; === DATA SECTION (addresses 100-110) ===
+LOC 100
+Data 42      ; 100: Test word to find
+Data 0       ; 101: Search word (from input)
+Data 0       ; 102: Result (1 if match, 0 if not)
+
+; === PROGRAM START at 1000 ===
+LOC 1000
+
+; Read search word from input
+IN 1, 0, 0
+
+; Store search word
+STR 1, 0, 101
+
+; Load test word
+LDR 2, 0, 100
+
+; Compare: R2 - R1 (test_word - search_word)
+SMR 2, 1, 0
+
+; If equal (result = 0), jump to MATCH at 1009
+JZ 2, 0, 1009
+
+; NOT MATCHED - set result to 0
+AIR 3, 0, 0
+STR 3, 0, 102
+JMA 0, 0, 1012
+
+; MATCHED (address 1009) - set result to 1
+AIR 3, 0, 1
+STR 3, 0, 102
+
+; OUTPUT result (address 1012)
+LDR 0, 0, 102
+OUT 0, 0, 1
+
+; Halt
+HLT

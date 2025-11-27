@@ -1,0 +1,125 @@
+; Program 2: Simple Word Search
+; Load at address 1000 via IPL
+; Searches for a word in a sentence and counts occurrences
+
+; === SETUP DATA FIRST ===
+; Location 0: Trap table base
+LOC 0
+Data 30
+
+; === PARAGRAPH DATA at 100-119 (20 words) ===
+LOC 100
+Data 5
+Data 10
+Data 5
+Data 15
+Data 20
+Data 5
+Data 25
+Data 30
+Data 10
+Data 5
+Data 40
+Data 5
+Data 45
+Data 50
+Data 10
+Data 55
+Data 60
+Data 5
+Data 65
+Data 70
+
+; === WORKING MEMORY at 200 ===
+LOC 200
+Data 0    ; 200: Search word storage
+Data 0    ; 201: Counter (occurrences)
+Data 0    ; 202: Position of first match
+Data 100  ; 203: Current address pointer
+Data 20   ; 204: Remaining words to check
+
+; === MAIN PROGRAM STARTS at 1000 ===
+LOC 1000
+
+; Step 1: Read search word
+IN 1, 0, 0
+STR 1, 0, 200
+
+; Step 2: Initialize counter = 0
+AIR 2, 0, 0
+STR 2, 0, 201
+
+; Step 3: Initialize first position = -1 (0xFFFF)
+AIR 3, 0, 1
+NOT 3
+STR 3, 0, 202
+
+; Step 4: Load starting address into IX1 (using 203 which has 100)
+LDX 1, 0, 203
+
+; Step 5: Initialize remaining count
+AIR 0, 0, 20
+STR 0, 0, 204
+
+; === LOOP BODY ===
+; Step 6 (address 1013): Load word from paragraph
+LDR 0, 1, 0
+
+; Step 7: Load search word
+LDR 3, 0, 200
+
+; Step 8: Compare (R0 - R3)
+SMR 0, 3, 0
+
+; Step 9: Jump if equal to MATCH at address 1025
+JZ 0, 0, 1025
+
+; === NOT MATCHED ===
+; Step 10 (address 1019): Increment pointer
+AIR 1, 0, 1
+
+; Step 11: Decrement remaining count
+LDR 0, 0, 204
+SIR 0, 0, 1
+STR 0, 0, 204
+
+; Step 12: Jump if more words (back to 1013)
+JNE 0, 0, 1013
+
+; Step 13: Done - jump to OUTPUT at 1039
+JMA 0, 0, 1039
+
+; === MATCHED (address 1025) ===
+; Step 14: Increment counter
+LDR 2, 0, 201
+AIR 2, 0, 1
+STR 2, 0, 201
+
+; Step 15: Check if first match (position == -1)
+LDR 3, 0, 202
+AIR 0, 0, 1
+NOT 0
+AMR 3, 0, 0
+
+; Step 16: If not first, skip saving position (jump to 1019)
+JNE 3, 0, 1019
+
+; Step 17: Save first match position (current_addr - 100)
+AIR 0, 0, 100
+SMR 1, 0, 0
+STR 1, 0, 202
+
+; Step 18: Jump back to continue loop (1019)
+JMA 0, 0, 1019
+
+; === OUTPUT (address 1039) ===
+; Step 19: Output occurrence count
+LDR 0, 0, 201
+OUT 0, 0, 1
+
+; Step 20: Output first position
+LDR 0, 0, 202
+OUT 0, 0, 1
+
+; Step 21: Halt
+HLT
