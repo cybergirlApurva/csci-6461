@@ -1,0 +1,20 @@
+4a81fbb Add Part II documentation
+f6d1d72 Add working Program 2 (file.txt) - word search with cache demonstration
+162b8d3 Add Program 2 (file.txt) and test program (test4.txt) for Part II deliverables
+14f8218 compute EA
+1ddbcb2 machine fault
+3bfc037 TRAP
+3335060 iodevices CHK
+547d8a3 Clean up blank lines in Design Notes
+bb46b46 Clean up Test Results documentation
+f3c7cb1 Remove note about separate reference document
+598c613 Clean up temporary files
+ca27857 Update Design Notes for CPU Simulator project
+3ea8fa4 Add screenshot to documentation/Screenshots
+ac54879 Fix Test_Results.md - remove extra content
+e244a36 Add complete Part 2 documentation - User Guide, Design Notes, Test Results, Quick Start
+c22cdee Add Program 1 machine code (assembled binary)
+9ea7217 Add Program 1 - reads 20 numbers, finds closest, prints results
+00a8c98 Merge pull request #10 from mihnea-popescu/demo
+07b02b5 update
+a4dad2f update
