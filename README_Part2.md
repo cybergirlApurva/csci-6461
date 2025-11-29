@@ -4,11 +4,11 @@
 **Team Members:** Apurva Tiwari, Mihnea Popescu, James Xu, Sinchana  
 **Course:** CS6461 Computer Architecture  
 **Submission Date:** November 1, 2025  
-**Status:** ✅ COMPLETE
+**Status:** COMPLETE
 
 ---
 
-## 📋 Submission Checklist
+## Submission Checklist
 
 ### Required Deliverables
 
@@ -31,7 +31,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### For Graders (2 minutes)
 ```bash
@@ -52,14 +52,14 @@ java -jar csci-6461.jar
 # Enter target number
 # View results
 
-# Done! ✅
+# Done! 
 ```
 
 **See `documentation/Quick_Start.md` for detailed instructions.**
 
 ---
 
-## 📊 Project Statistics
+##  Project Statistics
 
 ### Code Metrics
 - **Total Files:** 15 Java files
@@ -84,7 +84,7 @@ java -jar csci-6461.jar
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 ```
 ┌─────────────────────────────────────┐
 │         GUI (Java Swing)            │
@@ -118,9 +118,9 @@ java -jar csci-6461.jar
 
 ---
 
-## 🔧 New Features (Part 2)
+##  New Features (Part 2)
 
-### 1. Cache Implementation ✨
+### 1. Cache Implementation 
 - **Type:** Fully associative, unified cache
 - **Size:** 16 cache lines
 - **Replacement:** FIFO (First-In-First-Out)
@@ -128,7 +128,7 @@ java -jar csci-6461.jar
 - **Performance:** 70-80% hit rate on typical programs
 - **Visualization:** Real-time display in GUI
 
-### 2. Extended Instruction Set ✨
+### 2. Extended Instruction Set 
 **Added 20+ instructions:**
 - Arithmetic: MLT, DVD
 - Logical: TRR, AND, ORR, NOT
@@ -136,14 +136,14 @@ java -jar csci-6461.jar
 - I/O: IN, OUT, CHK
 - Enhanced branching: JGE, SOB
 
-### 3. Enhanced GUI ✨
+### 3. Enhanced GUI 
 - Cache panel with 16 line display
 - Hit/Miss statistics
 - Non-blocking I/O (threaded input)
 - Real-time register updates
 - Improved memory viewer
 
-### 4. Program 1 ✨
+### 4. Program 1 
 - Reads 20 integers from keyboard
 - Echoes all to console
 - Finds closest to target
@@ -195,7 +195,7 @@ csci-6461/
 
 ---
 
-## 👥 Team Contributions
+## Team Contributions
 
 ### Apurva Tiwari
 **Responsibilities:**
@@ -253,83 +253,83 @@ csci-6461/
 
 ---
 
-## 🎯 Part 2 Requirements Met
+##  Part 2 Requirements Met
 
-### ✅ Cache Design and Implementation
-- Fully associative cache: ✅
-- FIFO replacement: ✅
-- 16 cache lines: ✅
-- Hit/Miss tracking: ✅
-- Write-through policy: ✅
-- Performance >70%: ✅ (76.6%)
+### Cache Design and Implementation
+- Fully associative cache: Yes
+- FIFO replacement: Yes
+- 16 cache lines: Yes
+- Hit/Miss tracking: Yes
+- Write-through policy: Yes
+- Performance >70%: ,Yes- (76.6%)
 
-### ✅ All Instructions Working
+### All Instructions Working
 **Total: 28 instructions** (excluding CHK execution, TRAP, Floating Point)
-- Load/Store: 5 ✅
-- Arithmetic: 6 ✅
-- Logical: 4 ✅
-- Shift/Rotate: 2 ✅
-- Branch/Jump: 8 ✅
-- I/O: 3 ✅
+- Load/Store: 5 - Yes
+- Arithmetic: 6 - Yes
+- Logical: 4 - Yes
+- Shift/Rotate: 2 - Yes
+- Branch/Jump: 8 - Yes
+- I/O: 3 - Yes
 
-### ✅ Program 1 Complete
-- Reads 20 numbers: ✅
-- Echoes to console: ✅
-- Accepts target: ✅
-- Finds closest: ✅
-- Displays results: ✅
-- Handles edge cases: ✅
+### Program 1 Complete
+- Reads 20 numbers: Yes
+- Echoes to console: Yes
+- Accepts target: Yes
+- Finds closest: Yes
+- Displays results: Yes
+- Handles edge cases: Yes
 
-### ✅ Extended User Interface
-- Cache display panel: ✅
-- Statistics (hits/misses/rate): ✅
-- All registers visible: ✅
-- Memory viewer: ✅
-- Console I/O: ✅
-- Control buttons functional: ✅
+### Extended User Interface
+- Cache display panel: Yes
+- Statistics (hits/misses/rate): Yes
+- All registers visible: Yes
+- Memory viewer: Yes
+- Console I/O: Yes
+- Control buttons functional: Yes
 
-### ✅ Documentation
-- User guide: ✅
-- Design notes: ✅
-- Test results: ✅
-- Quick start: ✅
-- Well-commented code: ✅
+### Documentation
+- User guide: Done
+- Design notes: Done
+- Test results: Done
+- Quick start: Done
+- Well-commented code: Done
 
 ---
 
-## 🧪 Testing Summary
+## Testing Summary
 
 **Test Results:** 42/42 tests passed (100%)
 
 **Cache Tests:**
-- Hit detection: ✅
-- Miss handling: ✅
-- FIFO replacement: ✅
-- Write-through: ✅
-- Statistics: ✅
+- Hit detection: pass
+- Miss handling: pass
+- FIFO replacement: pass
+- Write-through: pass
+- Statistics: pass
 
 **Instruction Tests:**
-- All 28 instructions: ✅
-- Edge cases: ✅
-- Error handling: ✅
+- All 28 instructions: pass
+- Edge cases: pass
+- Error handling: pass
 
 **Program 1 Tests:**
-- Sequential numbers: ✅
-- Random numbers: ✅
-- Negative numbers: ✅
-- Target in list: ✅
-- Cache performance: ✅
+- Sequential numbers: pass
+- Random numbers: pass
+- Negative numbers: pass
+- Target in list: pass
+- Cache performance: pass
 
 **Integration Tests:**
-- Cache + Memory: ✅
-- CPU + GUI: ✅
-- End-to-end: ✅
+- Cache + Memory: pass
+- CPU + GUI: pass
+- End-to-end: pass
 
 **Performance:**
 - Cache hit rate: 76.6% (exceeds 70% requirement)
 - Execution time: <3 seconds
-- No memory leaks: ✅
-- No crashes: ✅
+- No memory leaks: pass
+- No crashes: pass
 
 **See `documentation/Test_Results.md` for complete details.**
 
@@ -371,7 +371,7 @@ Program 1 Breakdown:
 ├── Echo Phase:   85% hit rate (sequential)
 └── Search Phase: 80% hit rate (repeated)
     
-Overall: 76.6% hit rate ✅
+Overall: 76.6% hit rate 
 ```
 
 ### Execution Performance
@@ -387,9 +387,9 @@ Overall: 76.6% hit rate ✅
 
 ---
 
-## 🐛 Known Issues (None)
+## Known Issues (None)
 
-**No critical bugs or issues.** ✅
+**No critical bugs or issues.** 
 
 **Minor notes:**
 - Store/Store+ buttons not implemented (not required for Part 2)
@@ -397,7 +397,7 @@ Overall: 76.6% hit rate ✅
 
 ---
 
-## 🚀 Running Instructions
+## Running Instructions
 
 ### Minimum Requirements
 - Java JDK 1.8 or higher
@@ -422,7 +422,7 @@ java -jar csci-6461.jar
 
 ---
 
-## 📚 Documentation Index
+## Documentation Index
 
 1. **README_Part2.md** (this file) - Overview and checklist
 2. **User_Guide.md** - Complete user manual
@@ -434,17 +434,17 @@ java -jar csci-6461.jar
 
 ---
 
-## 🔗 Repository
+## Repository
 
 **GitHub:** https://github.com/mihnea-popescu/csci-6461
 
 **Latest Commit:** c22cdee  
 **Branch:** main  
-**Status:** All deliverables pushed ✅
+**Status:** All deliverables pushed 
 
 ---
 
-## ✅ Verification for Graders
+##  Verification for Graders
 
 ### Quick Verification (5 minutes)
 
@@ -467,24 +467,24 @@ java -jar csci-6461.jar
 - Click RUN
 - Enter 5 numbers
 - Enter target
-- Verify result ✅
+- Verify result 
 
 **4. Check cache:**
 - Look at cache panel
 - Verify 16 lines visible
-- Verify hit/miss statistics shown ✅
+- Verify hit/miss statistics shown 
 
 **5. Load Program 1:**
 - Enter path to program1.txt
 - Click IPL
 - Click STEP 5 times
-- Verify registers update ✅
+- Verify registers update 
 
-**All checks pass? System complete!** ✅
+**All checks pass? System complete!** 
 
 ---
 
-## 📞 Support
+## Support
 
 For questions about this submission:
 - Review documentation in `documentation/` folder
@@ -495,14 +495,14 @@ For questions about this submission:
 
 ## 📊 Final Status
 ```
-Part 2 Deliverables:     12/12 (100%) ✅
-Code Implementation:     Complete ✅
-Testing:                 42/42 (100%) ✅
-Documentation:           Complete ✅
-Performance:             Exceeds requirements ✅
-GitHub Status:           All pushed ✅
+Part 2 Deliverables:     12/12 (100%) 
+Code Implementation:     Complete 
+Testing:                 42/42 (100%) 
+Documentation:           Complete 
+Performance:             Exceeds requirements 
+GitHub Status:           All pushed 
 
-OVERALL STATUS: ✅ READY FOR SUBMISSION
+OVERALL STATUS:  READY FOR SUBMISSION
 ```
 
 ---
