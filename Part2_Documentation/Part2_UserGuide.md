@@ -220,4 +220,4 @@ cd csci-6461
 java -jar csci-6461.jar
 ```
 
-That's it! Hope this guide helps you use the simulator effectively.
+That's it! We hope this guide helps you use the simulator effectively.
