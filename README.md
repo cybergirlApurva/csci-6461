@@ -1,5 +1,3 @@
----
-
 ## Project Collaboration Notice
 
 **Academic project for CSCI 6461 - Computer Architecture**
